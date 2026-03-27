@@ -1,0 +1,8 @@
+# Schedule definition for thorn CCE_ExportX
+
+schedule CCE_ExportX at CCTK_ANALYSIS
+{
+  READS: ADMBaseX::metric(everywhere), ADMBaseX::curv(everywhere), ADMBaseX::lapse(everywhere), ADMBaseX::shift(everywhere), ADMBaseX::dtlapse(everywhere), ADMBaseX::dtshift(everywhere)
+  LANG: C
+  OPTIONS: GLOBAL
+} "Export metric data on sphere for CCE"
