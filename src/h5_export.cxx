@@ -8,7 +8,7 @@ namespace fs = std::experimental::filesystem;
 namespace fs = std::filesystem;
 #endif
 
-namespace CCE_ExportX {
+namespace cce_exportx_internal {
 
 using std::string, std::ostringstream, std::map, std::ios, std::setprecision;
 
@@ -317,4 +317,4 @@ void Output_Decomposed_Metric_Data(
   HDF5_ERROR(H5Fclose(file));
 }
 
-} // namespace CCE_ExportX
+} // namespace cce_exportx_internal

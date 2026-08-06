@@ -16,7 +16,7 @@
 #define H5_USE_16_API
 #include <hdf5.h>
 
-namespace CCE_ExportX {
+namespace cce_exportx_internal {
 
 using std::vector, std::string;
 
@@ -38,6 +38,6 @@ void Output_Decomposed_Metric_Data(
     vector<CCTK_REAL> &im_dr_alpha, vector<CCTK_REAL> &re_dt_alpha,
     vector<CCTK_REAL> &im_dt_alpha, float radius, int lmax);
 
-} // namespace CCE_ExportX
+} // namespace cce_exportx_internal
 
 #endif

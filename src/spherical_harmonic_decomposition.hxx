@@ -8,7 +8,7 @@
 #include <memory>
 #include <cmath>
 
-namespace CCE_ExportX {
+namespace cce_exportx_internal {
 
 using std::vector;
 
@@ -32,6 +32,6 @@ void Compute_Ylms(vector<CCTK_REAL> &th, vector<CCTK_REAL> &ph,
                   vector<vector<CCTK_REAL> > &im_ylms, int lmax,
                   int array_size);
 
-} // namespace CCE_ExportX
+} // namespace cce_exportx_internal
 
 #endif

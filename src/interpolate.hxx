@@ -10,7 +10,7 @@
 #include "vector"
 #include "string"
 
-namespace CCE_ExportX {
+namespace cce_exportx_internal {
 
 using std::vector, std::string;
 
@@ -46,6 +46,6 @@ void Extract_Metric_Shift_Lapse_On_Sphere(
     vector<CCTK_REAL> &xs, vector<CCTK_REAL> &ys, vector<CCTK_REAL> &zs,
     int ntheta, int nphi, int array_size, int rad_index);
 
-} // namespace CCE_ExportX
+} // namespace cce_exportx_internal
 
 #endif

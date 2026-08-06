@@ -10,12 +10,12 @@
 #include <string>
 #include <vector>
 
-namespace CCE_ExportX {
+namespace cce_exportx_internal {
 
 using std::vector, std::string;
 
 extern "C" void CCE_ExportX(CCTK_ARGUMENTS);
 
-} // namespace CCE_ExportX
+} // namespace cce_exportx_internal
 
 #endif // CCE_EXPORTX_HH

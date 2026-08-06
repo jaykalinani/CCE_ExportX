@@ -7,7 +7,7 @@
 #include <iomanip>
 #include <map>
 
-namespace CCE_ExportX {
+namespace cce_exportx_internal {
 
 using std::vector, std::string, std::ostringstream, std::ios;
 
@@ -183,4 +183,4 @@ void CCE_ExportX(CCTK_ARGUMENTS) {
     }
   }
 }
-} // namespace CCE_ExportX
+} // namespace cce_exportx_internal

@@ -1,6 +1,6 @@
 #include "spherical_harmonic_decomposition.hxx"
 
-namespace CCE_ExportX {
+namespace cce_exportx_internal {
 
 using std::sin, std::cos, std::pow;
 
@@ -164,4 +164,4 @@ void Compute_Ylms(vector<CCTK_REAL> &th, vector<CCTK_REAL> &ph,
   }
 }
 
-} // namespace CCE_ExportX
+} // namespace cce_exportx_internal

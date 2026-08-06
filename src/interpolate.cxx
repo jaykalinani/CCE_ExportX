@@ -1,6 +1,6 @@
 #include "interpolate.hxx"
 
-namespace CCE_ExportX {
+namespace cce_exportx_internal {
 
 void Interpolate_On_Sphere_With_Derivatives(
     CCTK_ARGUMENTS, vector<CCTK_REAL> &xs, vector<CCTK_REAL> &ys,
@@ -356,4 +356,4 @@ void Extract_Metric_Shift_Lapse_On_Sphere(
   }
 }
 
-} // namespace CCE_ExportX
+} // namespace cce_exportx_internal
