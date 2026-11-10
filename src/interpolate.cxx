@@ -2,6 +2,23 @@
 
 namespace cce_exportx_internal {
 
+namespace {
+
+void Set_CarpetX_Interpolation_Order(const int param_table_handle) {
+  int parameter_type = -1;
+  const void *const parameter_value = CCTK_ParameterGet(
+      "interpolation_order", "CarpetX", &parameter_type);
+  if (!parameter_value || parameter_type != PARAMETER_INT)
+    CCTK_ERROR("Could not obtain CarpetX::interpolation_order");
+
+  const CCTK_INT interpolation_order =
+      *static_cast<const CCTK_INT *>(parameter_value);
+  if (Util_TableSetInt(param_table_handle, interpolation_order, "order") < 0)
+    CCTK_ERROR("Could not set the CarpetX interpolation order");
+}
+
+} // namespace
+
 void Interpolate_On_Sphere_With_Derivatives(
     CCTK_ARGUMENTS, vector<CCTK_REAL> &xs, vector<CCTK_REAL> &ys,
     vector<CCTK_REAL> &zs, string name, vector<CCTK_REAL> &sphere_values,
@@ -36,8 +53,9 @@ void Interpolate_On_Sphere_With_Derivatives(
   int param_table_handle = Util_TableCreate(UTIL_TABLE_FLAGS_DEFAULT);
   Util_TableSetFromString(
       param_table_handle,
-      "order=3 boundary_off_centering_tolerance={0.0 0.0 0.0 0.0 0.0 0.0} "
+      "boundary_off_centering_tolerance={0.0 0.0 0.0 0.0 0.0 0.0} "
       "boundary_extrapolation_tolerance={0.0 0.0 0.0 0.0 0.0 0.0}");
+  Set_CarpetX_Interpolation_Order(param_table_handle);
 
   const CCTK_INT operand_indices[4] = {0, 0, 0, 0};
   Util_TableSetIntArray(param_table_handle, 4, operand_indices,
@@ -111,8 +129,9 @@ void Interpolate_On_Sphere(CCTK_ARGUMENTS, vector<CCTK_REAL> &xs,
   int param_table_handle = Util_TableCreate(UTIL_TABLE_FLAGS_DEFAULT);
   Util_TableSetFromString(
       param_table_handle,
-      "order=3 boundary_off_centering_tolerance={0.0 0.0 0.0 0.0 0.0 0.0} "
+      "boundary_off_centering_tolerance={0.0 0.0 0.0 0.0 0.0 0.0} "
       "boundary_extrapolation_tolerance={0.0 0.0 0.0 0.0 0.0 0.0}");
+  Set_CarpetX_Interpolation_Order(param_table_handle);
 
   const CCTK_INT operand_indices[1] = {0};
   Util_TableSetIntArray(param_table_handle, 1, operand_indices,
